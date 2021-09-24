@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>DELETE</title>
+    </head>
+    <body>
+        <form role="form" method="POST" action="{% url 'destroy-employee' pk %}">
+            <fieldset>							
+                <p class="text-uppercase pull-center"><b>Delete Record.</b></p>
+                <div class="form-group">
+                 <input type="number" name="id" id="id" class="form-control input-lg" placeholder="ID of Record">
+                 </div>
+                     
+                 <div class="form-group">
+                    <input type="number" name="employee_regNo" id="employee_regNo" class="form-control input-lg" placeholder="Registeration Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" id="name" value="{{data.employee_name}}" class="form-control input-lg" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" value="{{data.employee_email}}" class="form-control input-lg" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="number" id="number" value="{{data.employee_mobile}}" class="form-control input-lg" placeholder="Mobile Number">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input">
+                      By Clicking register you're agree to our policy & terms
+                    </label>
+                  </div>
+                 <div>
+                      <input type="submit" class="btn btn-lg btn-primary" value="DELETE">
+                 </div>
+            </fieldset>
+        </form>
+    </body>
+</html>

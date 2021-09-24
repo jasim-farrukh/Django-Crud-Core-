@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<title>CRUD</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<head>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+
+		<!---*************welcome this is my simple empty strap by John Niro Yumang ******************* -->
+
+		<script src="jquery/jquery.min.js"></script>
+		<!---- jquery link local dont forget to place this in first than other script or link or may not work ---->
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!---- boostrap.min link local ----->
+		
+		<link rel="stylesheet" href="css/style.css">
+		<!---- boostrap.min link local ----->
+		<link rel="favicon" href="favicon.png"/>
+		<script src="js/bootstrap.min.js"></script>
+		<!---- Boostrap js link local ----->
+		
+		<link rel="icon" href="images/icon.png" type="image/x-icon" />
+		<!---- Icon link local ----->
+		
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<style>
+		body{
+
+			/* background-image: url(static '/employee/templates/employee/pexels.jpg'); */
+			background-image: url(https://www.teahub.io/photos/full/323-3236228_dark-mountain-purple-sky-sea-wallpapers-nature-oil.jpg);
+			background-size: cover;
+		}
+	</style>
+	</head>
+	<body>
+		{{obj}}
+	<div class="container-fluid">
+		<div class="container">
+			<h2 class="text-center" id="title"><b>Employee CRUD</b></h2>
+			 <!-- <p class="text-center">
+				<small id="passwordHelpInline" class="text-muted"> Developer: follow me on facebook <a href="https://www.facebook.com/JheanYu"> Jasim Farrukh</a> inspired from <a href="https://p.w3layouts.com/">https://p.w3layouts.com/</a>.</small>
+			</p> -->
+ 			<hr>
+			<div class="row">				
+				<div class="col-md-5 col-md-12 text-center">
+					<form role="form" action= "{% url 'get-employee'%} ">
+						<fieldset>							
+							<p class="text-uppercase"><b>Click to View entire Records from DB</b></p></p>	
+							<div>
+								<input type="submit" class="btn btn-lg btn-primary" value="Show">  
+							  <!-- <button id="myButton" class="btn btn-lg btn-primary">Show</button> -->
+							</div>			   
+						 </fieldset>
+						 </form>
+ 					<form role="form" method="post" action="{% url 'create-employee' %}">
+						{% csrf_token %}
+						<fieldset>							
+							<p class="text-uppercase pull-center"><b>Add Record.</b></p>	
+ 							<div class="form-group">
+								<input type="number" name="employee_regNo" id="employee_regNo" required class="form-control input-lg" placeholder="Registeration Number">
+							</div>
+							<div class="form-group">
+								<input type="text" name="username" id="name" required class="form-control input-lg" placeholder="Name">
+							</div>
+							<div class="form-group">
+								<input type="email" name="email" id="email" required class="form-control input-lg" placeholder="Email Address">
+							</div>
+							<div class="form-group">
+								<input type="number" name="number" id="number" required class="form-control input-lg" placeholder="Mobile Number">
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+								  <input type="checkbox" class="form-check-input" required>
+								  <b>By Clicking register you're agree to our policy & terms</b>
+								</label>
+							  </div>
+ 							<div>
+ 								 <input type="submit" class="btn btn-lg btn-primary" value="POST">
+ 							</div>
+						</fieldset>
+					</form>
+					<hr>
+					<br>
+					<div class="col-sm-md-7">
+					   </div>
+				</div>
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+							<!-- <form role="form" method="POST" action="{% url 'update-employee' pk='123' %}">
+								{% csrf_token %}
+								<fieldset>							
+									<p class="text-uppercase pull-center"><b>Update Record.</b></p>	
+									<div class="form-group">
+										<input type="number" name="id" id="password" class="form-control input-lg" placeholder="ID of Record">
+									</div>
+									 <div class="form-group">
+										<input type="number" name="employee_regNo" id="employee_regNo" class="form-control input-lg" placeholder="Registeration Number">
+									</div>
+									<div class="form-group">
+										<input type="text" name="username" id="name" class="form-control input-lg" placeholder="Name">
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+									</div>
+									<div class="form-group">
+										<input type="number" name="number" id="number" class="form-control input-lg" placeholder="Mobile Number">
+									</div>
+									<div class="form-check">
+										<label class="form-check-label">
+										  <input type="checkbox" class="form-check-input">
+										  By Clicking register you're agree to our policy & terms
+										</label>
+									  </div>
+									 <div>
+										  <input type="submit" class="btn btn-lg btn-primary" value="UPDATE">
+									 </div>
+								</fieldset>
+							</form> -->
+					</form>	
+				<div class="col-md-7 col-sm-6">
+					<!-------null------>
+				</div>
+					<!-- <div class="row"> -->
+						<!-- <form role="form" method="post" action="register.php">
+						   <fieldset>							
+							   <p class="text-uppercase pull-center"><b>Delete Record.</b></p>
+							   <div class="form-group">
+								<input type="number" name="id" id="id" class="form-control input-lg" placeholder="ID of Record">
+								</div>
+									
+								<div class="form-group">
+								   <input type="number" name="employee_regNo" id="employee_regNo" class="form-control input-lg" placeholder="Registeration Number">
+							   </div>
+							   <div class="form-group">
+								   <input type="text" name="username" id="name" class="form-control input-lg" placeholder="Name">
+							   </div>
+							   <div class="form-group">
+								   <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+							   </div>
+							   <div class="form-group">
+								   <input type="number" name="number" id="number" class="form-control input-lg" placeholder="Mobile Number">
+							   </div>
+							   <div class="form-check">
+								   <label class="form-check-label">
+									 <input type="checkbox" class="form-check-input">
+									 By Clicking register you're agree to our policy & terms
+								   </label>
+								 </div>
+								<div>
+									 <input type="submit" class="btn btn-lg btn-primary" value="DELETE">
+								</div>
+						   </fieldset>
+					   </form> -->
+				   </div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

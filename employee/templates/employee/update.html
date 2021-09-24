@@ -1,0 +1,53 @@
+<html>
+    <head>
+          <title>UPDATE</title>
+        <script src="jquery/jquery.min.js"></script>
+		<!---- jquery link local dont forget to place this in first than other script or link or may not work ---->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!---- boostrap.min link local ----->
+		<link rel="stylesheet" href="css/style.css">
+		<!---- boostrap.min link local ----->
+		<link rel="favicon" href="favicon.png"/>
+		<script src="js/bootstrap.min.js"></script>
+		<!---- Boostrap js link local ----->
+		<link rel="icon" href="images/icon.png" type="image/x-icon" />
+		<!---- Icon link local ----->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <style>
+             body{
+                margin: 125px 150px 175px 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="text-center" id="title"><b>MODIFICATION</b></h2>
+        <form role="form" method="POST" action="{% url 'update-employee' pk %}">
+            {% csrf_token %}
+            <fieldset>							
+                <p class="text-uppercase pull-center"><b>Update Record.</b></p>	
+                 <div class="form-group">
+                    <input type="number" name="employee_regNo" id="employee_regNo" required value="{{data.employee_regNo}}" class="form-control input-lg" placeholder="Registeration Number">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" id="name" required value="{{data.employee_name}}" class="form-control input-lg" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" required value="{{data.employee_email}}" class="form-control input-lg" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="number" name="number" id="number" required value="{{data.employee_mobile}}" class="form-control input-lg" placeholder="Mobile Number">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" required> 
+                      By Clicking register you're agree to our policy & terms
+                    </label>     
+                  </div>
+                 <div>
+                      <input type="submit" class="btn btn-lg btn-primary" value="UPDATE">
+                 </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
