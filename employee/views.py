@@ -9,31 +9,19 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import status, viewsets
 
 import json
-# Create your views here.
 class EmployeeViewSet(viewsets.ModelViewSet):
-	print("------------------------")
-	print("Inside Class Employee View Set")
-	print("------------------------")
 	queryset = Employee.objects.all()
 	serializer_class = EmployeeSerializer
 
 	def retrieve(self, request, pk=0): #Retrieve Single Record based on primary key
-		print("-----------------------------")
-		print("Inside Get()")
-		print("-----------------------------")
-		try:
-		    Emp = get_object_or_404(Employee, pk=pk)
+		Emp = get_object_or_404(Employee, pk=pk)
 		return JsonResponse({
 	            "employee_regNo": Emp.employee_regNo,
 	            "emplyee_name": Emp.employee_name,
 	            "employee_email": Emp.employee_email,
 	            "employee_mobile": Emp.employee_mobile
 	        })
-		except Exception as e:
-			print(e)
-			return JsonResponse({
-	    		"Status": "Record Doesn't exists"
-	    	})
+
 	def list(self,request): #Retrieving all Objects
 		print("--------------------------")
 		print("Inside List()")
